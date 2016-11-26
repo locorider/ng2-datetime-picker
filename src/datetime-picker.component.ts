@@ -83,11 +83,11 @@ import {DateTime} from './datetime';
     <label class="hourLabel">Hour:</label>
     <input #hours class="hourInput"
            (change)="selectDate()"
-           type="range" min="0" max="23" [(ngModel)]="hour" />
+           type="range" min="0" max="23" [(ngModel)]="hour" (change)="hour=$event.target.value" />
     <label class="minutesLabel">Min:</label>
     <input #minutes class="minutesInput"
            (change)="selectDate()"
-           type="range" min="0" max="59" range="10" [(ngModel)]="minute"/>
+           type="range" min="0" max="59" range="10" [(ngModel)]="minute" (change)="minute=$event.target.value" />
   </div>
 </div>
 
