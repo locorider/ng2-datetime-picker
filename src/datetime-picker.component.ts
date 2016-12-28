@@ -82,12 +82,12 @@ import {DateTime} from './datetime';
     </span><br/>
     <label class="hourLabel">Hour:</label>
     <input #hours class="hourInput"
-           (change)="selectDate()"
-           type="range" min="0" max="23" [(ngModel)]="hour" (change)="hour=$event.target.value" />
+           (change)="onHourChanged($event.target.value)"
+           type="range" min="0" max="23" [(ngModel)]="hour" />
     <label class="minutesLabel">Min:</label>
     <input #minutes class="minutesInput"
-           (change)="selectDate()"
-           type="range" min="0" max="59" range="10" [(ngModel)]="minute" (change)="minute=$event.target.value" />
+           (change)="onMinuteChanged($event.target.value)"
+           type="range" min="0" max="59" range="10" [(ngModel)]="minute" />
   </div>
 </div>
 
@@ -301,6 +301,15 @@ export class DateTimePickerComponent implements AfterViewInit {
     this.closing.emit(true);
   };
 
+  public onHourChanged(val: any) {
+    this.hour = Number(val);
+    this.selectDate();
+  }
+
+  public onMinuteChanged(val: any) {
+    this.minute = Number(val);
+    this.selectDate();
+  }
   /**
    * show prev/next month calendar
    */
