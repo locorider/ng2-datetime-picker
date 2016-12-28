@@ -33,6 +33,8 @@ export declare class DateTimePickerComponent implements AfterViewInit {
      * @param date {Date}
      */
     selectDate(dayNum?: number): void;
+    onHourChanged(val: any): void;
+    onMinuteChanged(val: any): void;
     /**
      * show prev/next month calendar
      */
